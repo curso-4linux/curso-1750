@@ -24,3 +24,23 @@ cat /home/suporte/1750/docker-kubernetes/security/context/config-devops >> confi
 cat config
 
 scp config devops.crt devops.key devops@registry:
+
+## Configurando cliente do cluster
+
+ssh devops@172.16.0.103
+
+curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.19.3/bin/linux/amd64/kubectl
+chmod +x kubectl
+sudo mv kubectl /usr/local/bin/kubectl
+kubectl version --client
+
+mkdir .kube
+mv config .kube/
+
+mkdir .certs
+mv devops.key devops.crt .certs/
+
+kubectl config view
+kubectl config get-contexts
+
+kubectl get pods,deployments,services
