@@ -1,0 +1,10 @@
+## Executar na VM Registry
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout app-tls.key -out app-tls.crt -subj "/CN=app.4labs.example/O=4Labs/OU=Example"
+
+kubectl create secret tls certificado-app-tls --key app-tls.key --cert app-tls.crt
+
+cat 1750/docker-kubernetes/labs/aula09/tls-ingress-app.yaml
+
+kubectl apply -f 1750/docker-kubernetes/labs/aula09/tls-ingress-app.yaml
+
+kubectl get ingress
