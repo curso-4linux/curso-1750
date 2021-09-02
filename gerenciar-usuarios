@@ -4,3 +4,11 @@ cd .kube/users/
 openssl genrsa -out devops.key 2048
 
 openssl req -new -key devops.key -out devops.csr -subj "/CN=devops/O=devops/O=4labs.example"
+
+sudo openssl x509 -req -CA /etc/kubernetes/pki/ca.crt -CAkey /etc/kubernetes/pki/ca.key -CAcreateserial -days 365 -in devops.csr -out devops.crt
+
+kubectl config set-credentials devops --client-certificate=devops.crt --client-key=devops.key
+
+kubectl config set-context devops --cluster=kubernetes --user=devops --namespace=4labs
+
+kubectl config get-contexts
