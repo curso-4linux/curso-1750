@@ -44,3 +44,11 @@ kubectl config view
 kubectl config get-contexts
 
 kubectl get pods,deployments,services
+
+## Executar na VM manager
+ls 1750/docker-kubernetes/security/auth-user-account/
+cat 1750/docker-kubernetes/security/auth-user-account/role-devops.yaml 
+kubectl apply -f 1750/docker-kubernetes/security/auth-user-account/role-devops.yaml 
+
+## Executar na VM registry
+kubectl get pods,deployments,services
