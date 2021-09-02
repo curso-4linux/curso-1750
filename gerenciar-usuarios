@@ -53,3 +53,10 @@ kubectl apply -f 1750/docker-kubernetes/security/auth-user-account/role-devops.y
 
 ## Executar na VM registry
 kubectl get pods,deployments,services
+
+## Executar na VM manager
+cat 1750/docker-kubernetes/security/auth-user-account/cluster-role-devops.yaml
+kubectl apply -f 1750/docker-kubernetes/security/auth-user-account/cluster-role-devops.yaml 
+
+## Executar na VM registry
+kubectl get pv
