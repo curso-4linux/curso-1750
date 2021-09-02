@@ -46,6 +46,7 @@ kubectl config get-contexts
 kubectl get pods,deployments,services
 
 ## Executar na VM manager
+cd
 ls 1750/docker-kubernetes/security/auth-user-account/
 cat 1750/docker-kubernetes/security/auth-user-account/role-devops.yaml 
 kubectl apply -f 1750/docker-kubernetes/security/auth-user-account/role-devops.yaml 
