@@ -8,3 +8,8 @@ cat 1750/docker-kubernetes/labs/aula09/tls-ingress-app.yaml
 kubectl apply -f 1750/docker-kubernetes/labs/aula09/tls-ingress-app.yaml
 
 kubectl get ingress
+
+## Gerenciar politica de rede
+cat 1750/docker-kubernetes/network-policy/nginx-deploy.yaml
+kubectl apply -f 1750/docker-kubernetes/network-policy/nginx-deploy.yaml
+kubectl get deploy,service -l app=nginx
