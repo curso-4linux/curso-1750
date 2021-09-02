@@ -22,3 +22,5 @@ cat /home/suporte/1750/docker-kubernetes/security/context/config-devops
 cat /home/suporte/1750/docker-kubernetes/security/context/config-devops >> config
 
 cat config
+
+scp config devops.crt devops.key devops@registry:
