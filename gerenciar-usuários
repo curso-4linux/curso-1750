@@ -1,0 +1,2 @@
+mkdir -p ~/.kube/users
+cd .kube/users/
