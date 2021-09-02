@@ -2,3 +2,5 @@ mkdir -p ~/.kube/users
 cd .kube/users/
 
 openssl genrsa -out devops.key 2048
+
+openssl req -new -key devops.key -out devops.csr -subj "/CN=devops/O=devops/O=4labs.example"
