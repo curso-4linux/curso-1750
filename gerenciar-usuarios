@@ -1,2 +1,4 @@
 mkdir -p ~/.kube/users
 cd .kube/users/
+
+openssl genrsa -out devops.key 2048
