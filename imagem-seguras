@@ -29,3 +29,7 @@ sudo vim 1750/docker-kubernetes/labs/aula09/dep-app.yaml +$
 
 kubectl apply -f 1750/docker-kubernetes/labs/aula09/dep-app.yaml
 kubectl get pods -n 4labs 
+
+## Padronizar usuário e senha do servidor de registro
+kubectl -n 4labs patch serviceaccount default -p '{"imagePullSecrets": [{"name": "4labs-security"}]}'
+kubectl -n 4labs get serviceaccounts default -o yaml
