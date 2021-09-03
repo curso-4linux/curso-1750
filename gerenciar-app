@@ -13,3 +13,19 @@ kubectl get ingress
 cat 1750/docker-kubernetes/network-policy/nginx-deploy.yaml
 kubectl apply -f 1750/docker-kubernetes/network-policy/nginx-deploy.yaml
 kubectl get deploy,service -l app=nginx
+
+## Gerenciar politica de rede
+
+kubectl run --rm -ti busybox --image=busybox /bin/sh
+wget --spider --timeout=1 nginx
+exit
+
+kubectl apply -f 1750/docker-kubernetes/network-policy/allow-policy.yaml 
+
+kubectl run --rm -ti busybox --image=busybox /bin/sh
+wget --spider --timeout=1 nginx
+exit
+
+kubectl run --rm -ti --labels="access=true" busybox --image=busybox /bin/sh
+wget --spider --timeout=1 nginx
+exit
