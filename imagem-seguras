@@ -1,0 +1,16 @@
+## Ativar usuário e senha na VM registry
+ssh suporte@172.16.0.103
+
+vim docker-compose.yaml
+
+#Descomentar as linhas:
+
+#   REGISTRY_AUTH: htpasswd
+#   REGISTRY_AUTH_HTPASSWD_PATH: /auth/htpasswd
+#   REGISTRY_AUTH_HTPASSWD_REALM: Registry Realm
+
+#   - ./auth:/auth
+
+docker-compose stop
+docker-compose up -d
+
