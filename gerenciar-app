@@ -29,3 +29,21 @@ exit
 kubectl run --rm -ti --labels="access=true" busybox --image=busybox /bin/sh
 wget --spider --timeout=1 nginx
 exit
+
+## Politica de rede - bloquear rede
+kubectl delete -f 1750/docker-kubernetes/network-policy/allow-policy.yaml
+
+kubectl get pod -l app=nginx -o wide
+
+POD=$(kubectl get pod -l app=nginx -o wide | egrep "worker01|worker02" | awk -F" " '{print $6}' | tail -1)
+
+curl $POD
+
+cat 1750/docker-kubernetes/network-policy/ipblock-policy.yaml
+
+kubectl apply -f 1750/docker-kubernetes/network-policy/ipblock-policy.yaml
+
+curl $POD -v
+CTRL + C
+
+kubectl delete -f 1750/docker-kubernetes/network-policy/ipblock-policy.yaml
